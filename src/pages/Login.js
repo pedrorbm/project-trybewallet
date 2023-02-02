@@ -6,6 +6,7 @@ import { addEmail } from '../redux/actions';
 class Login extends React.Component {
   state = {
     email: '',
+    password: '',
     btnPermission: true,
   };
 
@@ -45,6 +46,7 @@ class Login extends React.Component {
           data-testid="password-input"
           type="password"
           name="password"
+          onChange={ this.handleChange }
         />
         <button onClick={ this.handleSubmit } disabled={ btnPermission }>Entrar</button>
       </div>
