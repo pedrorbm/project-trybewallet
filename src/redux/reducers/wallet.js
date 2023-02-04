@@ -1,9 +1,10 @@
-import { REQUEST_STARTED, REQUEST_SUCCESSFUL, REQUEST_FAILED }
-  from '../actions/actionsTypes';
+import { REQUEST_STARTED, REQUEST_SUCCESSFUL, REQUEST_FAILED,
+  ADD_EXPENSES } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
   isFetch: false,
   currencies: [],
+  expenses: [],
   error: '',
 };
 
@@ -29,6 +30,14 @@ const wallet = (state = INITIAL_STATE, action) => {
       isFetch: false,
       currencies: [],
       error: action.payload.error,
+    };
+
+  case ADD_EXPENSES:
+    return {
+      ...state,
+      isFetch: false,
+      expenses: [...state.expenses, action.payload.expenses],
+      error: '',
     };
 
   default:
