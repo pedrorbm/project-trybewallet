@@ -1,5 +1,5 @@
 import { REQUEST_STARTED, REQUEST_SUCCESSFUL, REQUEST_FAILED,
-  ADD_EXPENSES } from '../actions/actionsTypes';
+  ADD_EXPENSES, REMOVE_EXPENSES } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
   isFetch: false,
@@ -37,6 +37,14 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       isFetch: false,
       expenses: [...state.expenses, action.payload.expenses],
+      error: '',
+    };
+
+  case REMOVE_EXPENSES:
+    return {
+      ...state,
+      isFetch: false,
+      expenses: action.payload.expenses,
       error: '',
     };
 

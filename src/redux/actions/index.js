@@ -1,5 +1,5 @@
 import { ADD_EMAIL, REQUEST_STARTED, REQUEST_SUCCESSFUL,
-  REQUEST_FAILED, ADD_EXPENSES } from './actionsTypes';
+  REQUEST_FAILED, ADD_EXPENSES, REMOVE_EXPENSES } from './actionsTypes';
 
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
@@ -30,6 +30,13 @@ export const addExpenses = (object) => ({
   type: ADD_EXPENSES,
   payload: {
     expenses: object,
+  },
+});
+
+export const removeExpenses = (array) => ({
+  type: REMOVE_EXPENSES,
+  payload: {
+    expenses: array,
   },
 });
 
