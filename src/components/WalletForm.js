@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { requestApi, requestApiExpenses } from '../redux/actions';
+import { requestApi, requestApiExpenses, edit, editExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
@@ -24,17 +24,31 @@ class WalletForm extends Component {
 
   submit = () => {
     const { id, value, description, currency, method, tag } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, editor, expenses, idToEdit } = this.props;
 
-    dispatch(requestApiExpenses({ id, value, currency, method, tag, description }));
-    const changeId = id === 0 ? this.setState({ id: 1 }) : this.setState({ id: id + 1 });
-    this.setState({ value: '', description: '' });
-    return changeId;
+    if (editor) {
+      dispatch(edit(false));
+      expenses[idToEdit].value = value;
+      expenses[idToEdit].description = description;
+      expenses[idToEdit].currency = currency;
+      expenses[idToEdit].method = method;
+      expenses[idToEdit].tag = tag;
+
+      dispatch(editExpenses(expenses));
+      this.setState({ value: '', description: '' });
+    } else {
+      dispatch(requestApiExpenses({ id, value, currency, method, tag, description }));
+      const changeId = id === 0 ? this.setState({ id: 1 })
+        : this.setState({ id: id + 1 });
+      this.setState({ value: '', description: '' });
+
+      return changeId;
+    }
   };
 
   render() {
     const { value, description, currency, method, tag } = this.state;
-    const { currencies } = this.props;
+    const { currencies, editor } = this.props;
 
     return (
       <div>
@@ -92,7 +106,7 @@ class WalletForm extends Component {
             type="button"
             onClick={ this.submit }
           >
-            Adicionar despesa
+            { editor ? 'Editar despesa' : 'Adicionar despesa' }
           </button>
         </form>
       </div>

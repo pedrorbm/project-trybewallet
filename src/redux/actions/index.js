@@ -1,15 +1,11 @@
-import { ADD_EMAIL, REQUEST_STARTED, REQUEST_SUCCESSFUL,
-  REQUEST_FAILED, ADD_EXPENSES, REMOVE_EXPENSES } from './actionsTypes';
+import { ADD_EMAIL, REQUEST_SUCCESSFUL, REQUEST_FAILED,
+  ADD_EXPENSES, REMOVE_EXPENSES, EDIT, EDIT_EXPENSES } from './actionsTypes';
 
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
   payload: {
     email,
   },
-});
-
-export const requestStarted = () => ({
-  type: REQUEST_STARTED,
 });
 
 export const requestSuccessful = (results) => ({
@@ -47,10 +43,24 @@ export const addSum = (number) => ({
   },
 });
 
+export const edit = (boolean, id) => ({
+  type: EDIT,
+  payload: {
+    edit: boolean,
+    id,
+  },
+});
+
+export const editExpenses = (array) => ({
+  type: EDIT_EXPENSES,
+  payload: {
+    expenses: array,
+  },
+});
+
 export const requestApi = () => {
   const api = fetch('https://economia.awesomeapi.com.br/json/all');
   return (dispatch) => {
-    dispatch(requestStarted());
     api.then((response) => response.json())
       .then((results) => dispatch(requestSuccessful(Object.keys(results))))
       .catch((error) => dispatch(requestFailed(error)));
@@ -60,7 +70,6 @@ export const requestApi = () => {
 export const requestApiExpenses = (object) => {
   const api = fetch('https://economia.awesomeapi.com.br/json/all');
   return (dispatch) => {
-    dispatch(requestStarted());
     api.then((response) => response.json())
       .then((results) => dispatch(addExpenses(
         { id: object.id,
