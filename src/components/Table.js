@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { removeExpenses, edit } from '../redux/actions';
+import remove from '../images/iconeExcluir.png';
+import editar from '../images/iconeEdit.png';
 
 class Table extends Component {
   render() {
@@ -11,14 +13,14 @@ class Table extends Component {
       <table>
         <thead>
           <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
+            <th className="tableTitles">Descrição</th>
+            <th className="tableTitles">Tag</th>
+            <th className="tableTitles">Método de pagamento</th>
+            <th className="tableTitles">Valor</th>
+            <th className="tableTitles">Moeda</th>
+            <th className="tableTitles">Câmbio utilizado</th>
+            <th className="tableTitles">Valor convertido</th>
+            <th className="tableTitles">Moeda de conversão</th>
             <th>Editar/Excluir</th>
           </tr>
         </thead>
@@ -37,18 +39,20 @@ class Table extends Component {
                     .toFixed(2) }
                 </td>
                 <td>Real</td>
-                <td>
+                <td className="btnEditRemove">
                   <button
+                    className="edit-btn"
                     data-testid="edit-btn"
                     type="button"
                     onClick={ () => {
                       dispatch(edit(true, object.id));
                     } }
                   >
-                    Editar
+                    <img src={ editar } alt="Ícone de excluir" />
 
                   </button>
                   <button
+                    className="delete-btn"
                     data-testid="delete-btn"
                     type="button"
                     onClick={ () => {
@@ -57,7 +61,7 @@ class Table extends Component {
                     } }
                   >
                     {' '}
-                    Excluir
+                    <img src={ remove } alt="Ícone de editar" />
                   </button>
                 </td>
               </tr>

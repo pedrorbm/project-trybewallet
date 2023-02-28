@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEmail } from '../redux/actions';
+import logo from '../images/logoTrybeWallet.png';
 
 class Login extends React.Component {
   state = {
@@ -35,20 +36,34 @@ class Login extends React.Component {
     const { btnPermission } = this.state;
 
     return (
-      <div>
-        <input
-          data-testid="email-input"
-          type="email"
-          name="email"
-          onChange={ this.handleChange }
-        />
-        <input
-          data-testid="password-input"
-          type="password"
-          name="password"
-          onChange={ this.handleChange }
-        />
-        <button onClick={ this.handleSubmit } disabled={ btnPermission }>Entrar</button>
+      <div className="loginPage">
+        <div className="containerLogin">
+          <img className="logoLogin" src={ logo } alt="imagem do logotipo" />
+          <input
+            className="inputLogin"
+            placeholder="Email"
+            data-testid="email-input"
+            type="email"
+            name="email"
+            onChange={ this.handleChange }
+          />
+          <input
+            className="inputLogin"
+            placeholder="Senha"
+            data-testid="password-input"
+            type="password"
+            name="password"
+            onChange={ this.handleChange }
+          />
+          <button
+            className="btnLogin"
+            onClick={ this.handleSubmit }
+            disabled={ btnPermission }
+          >
+            <span>ENTRAR</span>
+
+          </button>
+        </div>
       </div>
     );
   }

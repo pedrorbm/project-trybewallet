@@ -1,0 +1,46 @@
+.loginPage {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/fotofundo.png');
+  background-color: #3dce9a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerLogin {
+  width: 45%;
+  height: 50%;
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center; 
+  gap: 10px; 
+  border-radius: 5px;
+}
+
+.inputLogin {
+  width: 57%;
+  height: 12%;
+  border-radius: 5px;
+  border: 1px solid blue;
+}
+
+.inputLogin::placeholder {
+  color: blue;
+  padding-left: 10px;
+}
+
+.btnLogin {
+  width: 57%;
+  height: 12%;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+  font-style:inherit;
+}
+
+.logoLogin {
+  margin-bottom: 30px;
+}

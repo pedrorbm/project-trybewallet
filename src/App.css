@@ -1,41 +1,15 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import './css/Login.css';
 
-@media ( prefers-reduced-motion : no-preference ) {
+@import './css/Wallet.css';
 
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+@import './css/Header.css';
 
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
-}
+@import './css/Table.css';
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import './css/WalletForm.css';

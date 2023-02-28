@@ -1,0 +1,40 @@
+.walletPage {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/fotofundo.png');
+  background-color: #3dce9a;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.containerWalletHeaderForm {
+  width: 80%;
+  height: 45%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 1000;
+}
+
+.absoluteDiv {
+  width: 90%;
+  height: 27%;
+  background: #003BE5;
+  position: absolute;
+  top: 18%;
+  z-index: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.containerWalletTable {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+  

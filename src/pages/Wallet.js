@@ -6,10 +6,15 @@ import Table from '../components/Table';
 class Wallet extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
-        <WalletForm />
-        <Table />
+      <div className="walletPage">
+        <div className="containerWalletHeaderForm">
+          <Header />
+          <WalletForm />
+        </div>
+        <div className="absoluteDiv" />
+        <div className="containerWalletTable">
+          <Table />
+        </div>
       </div>
     );
   }
